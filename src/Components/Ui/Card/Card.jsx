@@ -1,17 +1,24 @@
 import { MdDone } from "react-icons/md";
 
-const Card = ({ product }) => {
+const Card = ({ product, setItems, items, price, setPrice }) => {
   const tagColors = {
-    bestSeller : "bg-[#FEF3C6] text-[#BB4D00]",
-    popular : "bg-[#E1E7FF] text-[#4F39F6]",
-    new :"bg-[#DBFCE7] text-[#0A883E]"
-  }
+    bestSeller: "bg-[#FEF3C6] text-[#BB4D00]",
+    popular: "bg-[#E1E7FF] text-[#4F39F6]",
+    new: "bg-[#DBFCE7] text-[#0A883E]",
+  };
+
+  const handleClick = () => {
+    setItems([...items, product]);
+    setPrice(price + product.price)
+  };
   return (
     <div className="p-6 border-2 border-[#F2F2F2] rounded-2xl space-y-4 relative">
       <div className="inline-flex border border-[#F2F2F2] rounded-full p-3">
         <img src={product.icon} alt="" />
       </div>
-      <span className={`absolute top-3 right-3 py-1.5 px-3 rounded-full ${tagColors[product.tagType]}`}>
+      <span
+        className={`absolute top-3 right-3 py-1.5 px-3 rounded-full ${tagColors[product.tagType]}`}
+      >
         {product.tag}
       </span>
       <h2 className="font-semibold text-2xl">{product.name}</h2>
@@ -30,7 +37,10 @@ const Card = ({ product }) => {
           );
         })}
       </ul>
-      <button className="btn rounded-full bg-linear-to-r from-[#4F39F6] to-[#9514FA] text-white w-full">
+      <button
+        className="btn rounded-full bg-linear-to-r from-[#4F39F6] to-[#9514FA] text-white w-full"
+        onClick={handleClick}
+      >
         Buy Now
       </button>
     </div>

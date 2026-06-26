@@ -1,10 +1,13 @@
-import { use } from "react";
+import { use, useState } from "react";
 import AvailableProducts from "./AvailableProducts";
+import SelectedProducts from "./SelectedProducts";
 
+const Products = ({ productsPromise }) => {
+  const products = use(productsPromise);
+  const [items, setItems] = useState([]);
+  const [price, setPrice] = useState(0);
+  const [productTab, setProductTab] = useState("product");
 
-const Products = ({productsPromise}) => {
-    const products = use(productsPromise)
-    
   return (
     <div className="container mx-auto my-30 space-y-10">
       <div className="space-y-4 flex flex-col text-center items-center justify-center">
@@ -14,18 +17,46 @@ const Products = ({productsPromise}) => {
           designed <br /> to boost your productivity and creativity.
         </p>
         <div className="flex gap-4">
-          <button className="btn rounded-full bg-linear-to-r from-[#4F39F6] to-[#9514FA] text-white">
-            Products
+          <button
+            onClick={() => setProductTab("product")}
+            className={`btn rounded-full bg-linear-to-r ${productTab === "product" ? "from-[#4F39F6] to-[#9514FA] text-white" : "border border-[#6B2DFF] bg-white"}`}
+          >
+            <span
+              className={`${productTab === "product" ? "" : "bg-linear-to-r from-[#4F39F6] to-[#9514FA] bg-clip-text text-transparent"}`}
+            >
+              Products
+            </span>
           </button>
-          <button className=" btn flex items-center gap-2 rounded-full border border-[#6B2DFF]  bg-white">
-            <span className="bg-linear-to-r from-[#4F39F6] to-[#9514FA] bg-clip-text text-transparent">
-              Cart (0)
+
+          <button
+            onClick={() => setProductTab("cart")}
+            className={`btn flex items-center gap-2 rounded-full bg-linear-to-r ${productTab === "cart" ? "from-[#4F39F6] to-[#9514FA] text-white" : "border border-[#6B2DFF] bg-white"}`}
+          >
+            <span
+              className={`${productTab === "cart" ? "" : "bg-linear-to-r from-[#4F39F6] to-[#9514FA] bg-clip-text text-transparent"}`}
+            >
+              Cart ({items.length})
             </span>
           </button>
         </div>
       </div>
 
-    <AvailableProducts products={products} />
+      {productTab === "product" ? (
+        <AvailableProducts
+          products={products}
+          items={items}
+          setItems={setItems}
+          price={price}
+          setPrice={setPrice}
+        />
+      ) : (
+        <SelectedProducts
+          items={items}
+          setItems={setItems}
+          price={price}
+          setPrice={setPrice}
+        />
+      )}
     </div>
   );
 };
