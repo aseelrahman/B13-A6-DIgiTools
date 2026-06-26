@@ -6,7 +6,7 @@
     "price": 29,
     "period": "monthly",
     "tag": "Best Seller",
-    "tagType": "best seller",
+    "tagType": "bestSeller",
     "features": [
       "Unlimited AI generations",
       "50+ writing templates",
@@ -42,7 +42,7 @@
       "Commercial use",
       "No attribution"
     ],
-    "icon": "/products/portfolio.png"
+    "icon": "/public/products/camera_8775444 1.png"
   },
   {
     "id": 4,
@@ -72,7 +72,7 @@
       "ATS optimization",
       "Export to PDF"
     ],
-    "icon": "/products/shopping-cart.png"
+    "icon": "/products/portfolio.png"
   },
   {
     "id": 6,
@@ -81,7 +81,7 @@
     "price": 39,
     "period": "monthly",
     "tag": "Best Seller",
-    "tagType": "best seller",
+    "tagType": "bestSeller",
     "features": [
       "5000+ assets",
       "Scheduler included",

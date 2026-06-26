@@ -6,7 +6,7 @@ const Products = ({productsPromise}) => {
     const products = use(productsPromise)
     
   return (
-    <div className="container mx-auto my-30">
+    <div className="container mx-auto my-30 space-y-10">
       <div className="space-y-4 flex flex-col text-center items-center justify-center">
         <h1 className="font-bold text-5xl">Premium Digital Tools</h1>
         <p>
