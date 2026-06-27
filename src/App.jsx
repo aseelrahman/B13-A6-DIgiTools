@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import Products from "./Components/Products/Products";
 import Rating from "./Components/Rating/Rating";
 import Steps from "./Components/Steps/Steps";
+import { ToastContainer } from "react-toastify";
 
 const fetchProducts = async () => {
   const res = await fetch("/products.json");
@@ -35,6 +36,7 @@ function App() {
       >
         <Steps stepsPromise={stepsPromise} />
       </Suspense>
+      <ToastContainer />
     </>
   );
 }

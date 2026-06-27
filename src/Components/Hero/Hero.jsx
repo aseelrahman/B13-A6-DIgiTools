@@ -3,8 +3,8 @@ import banner from "../../assets/banner.png";
 
 const Hero = () => {
   return (
-    <div className="w-300 mx-auto flex justify-between items-center my-15 gap-14">
-      <div className="flex flex-1 flex-col space-y-4">
+    <div className="w-300 mx-auto grid grid-cols-1 md:grid-cols-5  justify-between items-center my-15 gap-14">
+      <div className="flex flex-1 flex-col space-y-4 md:col-span-3">
         <h1 className="font-bold text-7xl">
           Supercharge Your Digital Workflow
         </h1>
@@ -26,7 +26,7 @@ const Hero = () => {
           </button>
         </div>
       </div>
-      <div>
+      <div className="md:col-span-2">
         <img src={banner} alt="Banner image"/>
       </div>
     </div>

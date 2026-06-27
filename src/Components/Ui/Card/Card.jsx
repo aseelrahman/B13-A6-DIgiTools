@@ -1,4 +1,5 @@
 import { MdDone } from "react-icons/md";
+import { toast } from "react-toastify";
 
 const Card = ({ product, setItems, items, price, setPrice }) => {
   const tagColors = {
@@ -10,6 +11,7 @@ const Card = ({ product, setItems, items, price, setPrice }) => {
   const handleClick = () => {
     setItems([...items, product]);
     setPrice(price + product.price)
+    toast.success('Product Added')
   };
   return (
     <div className="p-6 border-2 border-[#F2F2F2] rounded-2xl space-y-4 relative">
